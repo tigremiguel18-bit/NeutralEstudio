@@ -9,7 +9,7 @@
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #000; color: #fff; text-align: center; overflow-x: hidden; }
         body.scrolled { background-color: #fff !important; color: #000 !important; }
 
-        /* Marquees laterales y horizontales */
+        /* Marquees dinámicos */
         .marquee { position: fixed; z-index: 500; font-weight: 900; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: 0.3; font-size: 0.75rem; letter-spacing: 2px; }
         .side { writing-mode: vertical-rl; height: 100vh; animation: moveSide 8s linear infinite; }
         .left { left: 15px; } .right { right: 15px; }
@@ -32,7 +32,7 @@
         
         footer { padding: 60px 20px; border-top: 1px solid #222; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; }
         
-        /* Nuevo Menú de Producto (Modal Mejorado) */
+        /* Modal Detallado */
         #modal { 
             display: none; 
             position: fixed; 
@@ -118,10 +118,12 @@
             <img src="heart.jpg" alt="Heart">
             <p>$35.00</p>
         </div>
-        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry.jpg', 'Indulge in the sweet side of style. A bold graphic piece designed for the modern wardrobe.', '$35.00')">
-            <img src="cherry.jpg" alt="Cherry">
+        
+        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry-v2.jpg', 'A bold graphic piece featuring detailed artwork and industrial-inspired text. For the luxury streetwear visionary.', '$35.00')">
+            <img src="cherry-v2.jpg" alt="Cherry">
             <p>$35.00</p>
         </div>
+
         <div class="product-card" onclick="openModal('Balloon Dog Tee', 'perro.jpg', 'Unleash your inner artist. Inspired by contemporary pop art and streetwear culture.', '$35.00')">
             <img src="perro.jpg" alt="Perro">
             <p>$35.00</p>
