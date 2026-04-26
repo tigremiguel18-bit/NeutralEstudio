@@ -5,48 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEUTRAL ESTUDIO | 2026</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.5s ease; }
-        body { font-family: 'Helvetica', sans-serif; background-color: #000; color: #fff; text-align: center; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.4s ease; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #000; color: #fff; text-align: center; overflow-x: hidden; }
         body.scrolled { background-color: #fff !important; color: #000 !important; }
 
-        .marquee { position: fixed; z-index: 500; font-weight: bold; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: 0.4; font-size: 0.8rem; line-height: 0.8; }
-        .side { writing-mode: vertical-rl; height: 100vh; animation: moveSide 6s linear infinite; }
-        .left { left: 10px; } .right { right: 10px; }
+        /* Marquees laterales y horizontales */
+        .marquee { position: fixed; z-index: 500; font-weight: 900; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: 0.3; font-size: 0.75rem; letter-spacing: 2px; }
+        .side { writing-mode: vertical-rl; height: 100vh; animation: moveSide 8s linear infinite; }
+        .left { left: 15px; } .right { right: 15px; }
         @keyframes moveSide { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-        .top-bottom { width: 100vw; animation: moveHoriz 10s linear infinite; }
-        .top { top: 10px; } .bottom { bottom: 10px; }
+        .top-bottom { width: 100vw; animation: moveHoriz 12s linear infinite; }
+        .top { top: 15px; } .bottom { bottom: 15px; }
         @keyframes moveHoriz { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
-        .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; }
+        /* Sección Hero */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; }
+        .logo-neutral { width: 300px; height: auto; filter: invert(1); margin-bottom: 30px; } 
+        .hero-desc { max-width: 650px; line-height: 1.6; font-size: 0.95rem; opacity: 0.7; font-weight: 300; letter-spacing: 0.5px; }
         
-        /* Ajuste para el logo NS */
-        .logo-neutral { 
-            width: 280px; 
-            height: auto;
-            filter: invert(1); /* Mantiene el logo visible sobre fondo negro */
-        } 
+        /* Grid de Productos */
+        .grid { display: flex; justify-content: center; gap: 30px; padding: 100px 20px; flex-wrap: wrap; }
+        .product-card { border: 1px solid #333; padding: 25px; width: 320px; cursor: pointer; background: rgba(255,255,255,0.02); border-radius: 2px; position: relative; }
+        .product-card img { width: 100%; height: auto; margin-bottom: 15px; }
+        .product-card p { font-weight: bold; letter-spacing: 1px; font-size: 1.1rem; }
+        .product-card:hover { border-color: #fff; transform: translateY(-10px); background: rgba(255,255,255,0.05); }
         
-        .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; margin-top: 20px; }
+        footer { padding: 60px 20px; border-top: 1px solid #222; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; }
         
-        .grid { display: flex; justify-content: center; gap: 20px; padding: 100px 50px; flex-wrap: wrap; }
-        .product-card { border: 1px solid #555; padding: 20px; width: 300px; cursor: pointer; background: rgba(255,255,255,0.05); }
-        .product-card img { width: 100%; height: auto; }
-        .product-card:hover { border-color: #fff; transform: translateY(-5px); }
-        
-        footer { padding: 40px; line-height: 1.2; font-size: 0.9rem; }
-        
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
-        #modal.active { display: flex; }
-        .modal-content { background: #1a1a1a; padding: 40px; border-radius: 10px; max-width: 800px; display: flex; gap: 30px; align-items: center; position: relative; color: white; border: 1px solid #333; }
-        .modal-content img { width: 350px; height: auto; }
-        .btn { padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px; }
-        .btn-ig { background-color: #E1306C; color: white; }
-        .btn-close { background-color: #444; color: white; border: none; cursor: pointer; margin-top: 10px; }
+        /* Nuevo Menú de Producto (Modal Mejorado) */
+        #modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(8px); 
+            z-index: 1000; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px;
+        }
+        #modal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @media (max-width: 768px) {
-            .modal-content { flex-direction: column; text-align: center; width: 90%; padding: 20px; }
-            .modal-content img { width: 250px; }
+        .modal-content { 
+            background: linear-gradient(145deg, #111, #000); 
+            padding: 50px; 
+            border-radius: 4px; 
+            max-width: 900px; 
+            width: 100%;
+            display: flex; 
+            gap: 40px; 
+            align-items: center; 
+            position: relative; 
+            color: white; 
+            border: 1px solid #444;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        .modal-content img { width: 400px; height: auto; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .modal-info { text-align: left; flex: 1; }
+        .modal-info h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: -1px; }
+        .modal-info h3 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; font-weight: 300; }
+        .modal-info p { line-height: 1.8; font-size: 1rem; opacity: 0.8; margin-bottom: 30px; font-weight: 300; }
+
+        .btn-ig { 
+            background: #fff; 
+            color: #000; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px;
+            border: 1px solid #fff;
+        }
+        .btn-ig:hover { background: transparent; color: #fff; }
+
+        .btn-close { 
+            position: absolute; 
+            top: 20px; right: 20px; 
+            background: none; border: none; 
+            color: #fff; font-size: 1.5rem; 
+            cursor: pointer; opacity: 0.5; 
+        }
+        .btn-close:hover { opacity: 1; }
+
+        @media (max-width: 850px) {
+            .modal-content { flex-direction: column; padding: 30px; max-height: 90vh; overflow-y: auto; }
+            .modal-content img { width: 100%; max-width: 300px; }
+            .modal-info h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -61,57 +110,8 @@
         <div class="logo-container">
             <img src="logo.png" alt="Neutral Estudio" class="logo-neutral">
         </div>
-        <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends. Neutral Estudio© represents simplicity, balance, and a new vision of modern streetwear.</p>
+        <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends.</p>
     </section>
 
     <div class="grid">
-        <div class="product-card" onclick="openModal('Heart Tee', 'heart.jpg', 'Experience raw emotion with our iconic Heart Tee.', '$40.00')">
-            <img src="heart.jpg" alt="Heart">
-            <p>$40.00</p>
-        </div>
-        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry.jpg', 'Indulge in the sweet side of style.', '$40.00')">
-            <img src="cherry.jpg" alt="Cherry">
-            <p>$40.00</p>
-        </div>
-        <div class="product-card" onclick="openModal('Balloon Dog Tee', 'perro.jpg', 'Unleash your inner artist with this piece.', '$40.00')">
-            <img src="perro.jpg" alt="Perro">
-            <p>$40.00</p>
-        </div>
-    </div>
-
-    <footer>
-        <p style="font-weight: bold;">NEUTRAL ESTUDIO©</p>
-        <p>CUENCA, AZUAY</p>
-        <p>2026 | ALL RIGHTS RESERVED</p>
-    </footer>
-
-    <div id="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <img id="modal-img" src="" alt="Producto">
-            <div class="modal-info" style="text-align: left;">
-                <h2 id="modal-title"></h2>
-                <h3 id="modal-price" style="color: #00ff00; margin-top: 10px;"></h3>
-                <p id="modal-description" style="margin: 15px 0; line-height: 1.4;"></p>
-                <a href="https://www.instagram.com/neutral.estudio_/" target="_blank" class="btn btn-ig">Comprar por Instagram</a>
-                <br>
-                <button class="btn btn-close" onclick="closeModal()">Cerrar</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) document.body.classList.add('scrolled');
-            else document.body.classList.remove('scrolled');
-        });
-        function openModal(title, imgSrc, desc, price) {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-img').src = imgSrc;
-            document.getElementById('modal-description').innerText = desc;
-            document.getElementById('modal-price').innerText = price;
-            document.getElementById('modal').classList.add('active');
-        }
-        function closeModal() { document.getElementById('modal').classList.remove('active'); }
-    </script>
-</body>
-</html>
+        <div class="product-card" onclick="openModal('Heart Tee', 'heart.jpg', 'Experience raw emotion with our iconic Heart Tee. High-
