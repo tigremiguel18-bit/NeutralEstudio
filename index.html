@@ -18,8 +18,16 @@
         @keyframes moveHoriz { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
-        .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; }
-        .logo-new { width: 250px; height: auto; } /* Ajuste de tamaño para el nuevo logo */
+        .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; }
+        
+        /* Estilo para tu logo transparente (image_7.png) */
+        .logo-neutral { 
+            width: 280px; /* Tamaño principal */
+            height: auto;
+            /* Si tu logo es oscuro y no se ve sobre fondo negro, descomenta la siguiente línea para invertir los colores: */
+            /* filter: invert(1); */ 
+        } 
+        
         .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; }
         
         .grid { display: flex; justify-content: center; gap: 20px; padding: 100px 50px; flex-wrap: wrap; }
@@ -53,7 +61,7 @@
 
     <section class="hero">
         <div class="logo-container">
-            <img src="./logo-nuevo.png" alt="Neutral Estudio" class="logo-new">
+            <img src="./image_7.png" alt="Neutral Estudio Logo" class="logo-neutral">
         </div>
         <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends. Neutral Estudio© represents simplicity, balance, and a new vision of modern streetwear.</p>
     </section>
