@@ -9,7 +9,6 @@
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #000; color: #fff; text-align: center; overflow-x: hidden; }
         body.scrolled { background-color: #fff !important; color: #000 !important; }
 
-        /* Marquees dinámicos */
         .marquee { position: fixed; z-index: 500; font-weight: 900; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: 0.3; font-size: 0.75rem; letter-spacing: 2px; }
         .side { writing-mode: vertical-rl; height: 100vh; animation: moveSide 8s linear infinite; }
         .left { left: 15px; } .right { right: 15px; }
@@ -18,12 +17,10 @@
         .top { top: 15px; } .bottom { bottom: 15px; }
         @keyframes moveHoriz { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-        /* Sección Hero */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; }
         .logo-neutral { width: 300px; height: auto; filter: invert(1); margin-bottom: 30px; } 
         .hero-desc { max-width: 650px; line-height: 1.6; font-size: 0.95rem; opacity: 0.7; font-weight: 300; letter-spacing: 0.5px; }
         
-        /* Grid de Productos */
         .grid { display: flex; justify-content: center; gap: 30px; padding: 100px 20px; flex-wrap: wrap; }
         .product-card { border: 1px solid #333; padding: 25px; width: 320px; cursor: pointer; background: rgba(255,255,255,0.02); border-radius: 2px; position: relative; }
         .product-card img { width: 100%; height: auto; margin-bottom: 15px; }
@@ -32,71 +29,23 @@
         
         footer { padding: 60px 20px; border-top: 1px solid #222; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6; }
         
-        /* Modal Detallado */
-        #modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; 
-            width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.8); 
-            backdrop-filter: blur(8px); 
-            z-index: 1000; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 20px;
-        }
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         #modal.active { display: flex; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .modal-content { 
-            background: linear-gradient(145deg, #111, #000); 
-            padding: 50px; 
-            border-radius: 4px; 
-            max-width: 900px; 
-            width: 100%;
-            display: flex; 
-            gap: 40px; 
-            align-items: center; 
-            position: relative; 
-            color: white; 
-            border: 1px solid #444;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
+        .modal-content { background: linear-gradient(145deg, #111, #000); padding: 50px; border-radius: 4px; max-width: 900px; width: 100%; display: flex; gap: 40px; align-items: center; position: relative; color: white; border: 1px solid #444; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         .modal-content img { width: 400px; height: auto; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        
         .modal-info { text-align: left; flex: 1; }
         .modal-info h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: -1px; }
         .modal-info h3 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; font-weight: 300; }
         .modal-info p { line-height: 1.8; font-size: 1rem; opacity: 0.8; margin-bottom: 30px; font-weight: 300; }
 
-        .btn-ig { 
-            background: #fff; 
-            color: #000; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            display: inline-block; 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            letter-spacing: 2px;
-            border: 1px solid #fff;
-        }
+        .btn-ig { background: #fff; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; display: inline-block; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; border: 1px solid #fff; }
         .btn-ig:hover { background: transparent; color: #fff; }
-
-        .btn-close { 
-            position: absolute; 
-            top: 20px; right: 20px; 
-            background: none; border: none; 
-            color: #fff; font-size: 1.5rem; 
-            cursor: pointer; opacity: 0.5; 
-        }
+        .btn-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; opacity: 0.5; }
         .btn-close:hover { opacity: 1; }
 
-        @media (max-width: 850px) {
-            .modal-content { flex-direction: column; padding: 30px; max-height: 90vh; overflow-y: auto; }
-            .modal-content img { width: 100%; max-width: 300px; }
-            .modal-info h2 { font-size: 1.8rem; }
-        }
+        @media (max-width: 850px) { .modal-content { flex-direction: column; padding: 30px; max-height: 90vh; overflow-y: auto; } .modal-content img { width: 100%; max-width: 300px; } .modal-info h2 { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
@@ -110,22 +59,22 @@
         <div class="logo-container">
             <img src="logo.png" alt="Neutral Estudio" class="logo-neutral">
         </div>
-        <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends.</p>
+        <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes.</p>
     </section>
 
     <div class="grid">
-        <div class="product-card" onclick="openModal('Heart Tee', 'heart-v2.jpg', 'Looking for Somebody To Be Loved. A bold statement of modern emotion and bold design. Premium heavyweight cotton, minimalist cut.', '$35.00')">
-            <img src="heart-v2.jpg" alt="Heart Tee">
+        <div class="product-card" onclick="openModal('Heart Tee', 'heart-final.jpg', 'Looking for Somebody To Be Loved. Neutral Estudio 2026 edition.', '$35.00')">
+            <img src="heart-final.jpg" alt="Heart">
             <p>$35.00</p>
         </div>
         
-        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry-v2.jpg', 'A bold graphic piece featuring detailed artwork and industrial-inspired text. For the luxury streetwear visionary.', '$35.00')">
-            <img src="cherry-v2.jpg" alt="Cherry Tee">
+        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry-v2.jpg', 'Industrial-inspired cherry graphic for the luxury streetwear visionary.', '$35.00')">
+            <img src="cherry-v2.jpg" alt="Cherry">
             <p>$35.00</p>
         </div>
 
-        <div class="product-card" onclick="openModal('Balloon Dog Tee', 'perro-v2.jpg', 'A sculptural dog formed from smooth, reflective curves. Its metallic blue surface captures light like liquid glass. A modern icon suspended between art and innocence.', '$35.00')">
-            <img src="perro-v2.jpg" alt="Balloon Dog Tee">
+        <div class="product-card" onclick="openModal('Balloon Dog Tee', 'perro-final.jpg', 'A sculptural dog formed from smooth, reflective curves. Metallic blue surface balancing playfulness with sophistication.', '$35.00')">
+            <img src="perro-final.jpg" alt="Balloon Dog">
             <p>$35.00</p>
         </div>
     </div>
@@ -153,7 +102,6 @@
             if (window.scrollY > 80) document.body.classList.add('scrolled');
             else document.body.classList.remove('scrolled');
         });
-
         function openModal(title, imgSrc, desc, price) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-img').src = imgSrc;
