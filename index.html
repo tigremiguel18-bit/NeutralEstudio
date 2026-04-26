@@ -20,15 +20,14 @@
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
         .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; }
         
-        /* Estilo para tu logo transparente (image_7.png) */
+        /* Estabilización del Logo NS */
         .logo-neutral { 
-            width: 280px; /* Tamaño principal */
+            width: 280px; 
             height: auto;
-            /* Si tu logo es oscuro y no se ve sobre fondo negro, descomenta la siguiente línea para invertir los colores: */
-            /* filter: invert(1); */ 
+            filter: invert(1); /* Borra esta línea si el logo ya es blanco */
         } 
         
-        .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; }
+        .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; margin-top: 20px; }
         
         .grid { display: flex; justify-content: center; gap: 20px; padding: 100px 50px; flex-wrap: wrap; }
         .product-card { border: 1px solid #555; padding: 20px; width: 300px; cursor: pointer; background: rgba(255,255,255,0.05); }
@@ -37,7 +36,7 @@
         
         footer { padding: 40px; line-height: 1.2; font-size: 0.9rem; }
         
-        /* Modal */
+        /* Ventana de compra (Modal) */
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
         #modal.active { display: flex; }
         .modal-content { background: #1a1a1a; padding: 40px; border-radius: 10px; max-width: 800px; display: flex; gap: 30px; align-items: center; position: relative; color: white; border: 1px solid #333; }
@@ -61,7 +60,7 @@
 
     <section class="hero">
         <div class="logo-container">
-            <img src="./image_7.png" alt="Neutral Estudio Logo" class="logo-neutral">
+            <img src="./logo.png" alt="Neutral Estudio" class="logo-neutral">
         </div>
         <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends. Neutral Estudio© represents simplicity, balance, and a new vision of modern streetwear.</p>
     </section>
@@ -102,10 +101,13 @@
     </div>
 
     <script>
+        // Cambio de color al hacer scroll
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) document.body.classList.add('scrolled');
             else document.body.classList.remove('scrolled');
         });
+
+        // Funciones del Modal
         function openModal(title, imgSrc, desc, price) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-img').src = imgSrc;
