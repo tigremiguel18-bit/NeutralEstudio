@@ -18,9 +18,9 @@
         @keyframes moveHoriz { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
-        .logo-container { display: flex; flex-direction: column; align-items: center; }
-        .logo-alt { width: 250px; height: auto; opacity: 1; } /* Ajustado para que el logo nuevo sea el principal */
-        .hero-desc { max-width: 600px; margin-top: 30px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; }
+        .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; }
+        .logo-new { width: 250px; height: auto; } /* Ajuste de tamaño para el nuevo logo */
+        .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; }
         
         .grid { display: flex; justify-content: center; gap: 20px; padding: 100px 50px; flex-wrap: wrap; }
         .product-card { border: 1px solid #555; padding: 20px; width: 300px; cursor: pointer; background: rgba(255,255,255,0.05); }
@@ -53,7 +53,7 @@
 
     <section class="hero">
         <div class="logo-container">
-            <img src="./sinfondo.jpg" alt="Neutral Estudio" class="logo-alt">
+            <img src="./logo-nuevo.png" alt="Neutral Estudio" class="logo-new">
         </div>
         <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends. Neutral Estudio© represents simplicity, balance, and a new vision of modern streetwear.</p>
     </section>
