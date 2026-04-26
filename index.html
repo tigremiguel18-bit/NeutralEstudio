@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEUTRAL ESTUDIO | 2026</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.5s ease; }
         body { font-family: 'Helvetica', sans-serif; background-color: #000; color: #fff; text-align: center; overflow-x: hidden; }
         body.scrolled { background-color: #fff !important; color: #000 !important; }
 
-        /* Textos en movimiento */
         .marquee { position: fixed; z-index: 500; font-weight: bold; text-transform: uppercase; white-space: nowrap; pointer-events: none; opacity: 0.4; font-size: 0.8rem; line-height: 0.8; }
         .side { writing-mode: vertical-rl; height: 100vh; animation: moveSide 6s linear infinite; }
         .left { left: 10px; } .right { right: 10px; }
@@ -20,11 +20,11 @@
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
         .logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; }
         
-        /* Estabilización del Logo NS */
+        /* Ajuste para el logo NS */
         .logo-neutral { 
             width: 280px; 
             height: auto;
-            filter: invert(1); /* Borra esta línea si el logo ya es blanco */
+            filter: invert(1); /* Mantiene el logo visible sobre fondo negro */
         } 
         
         .hero-desc { max-width: 600px; line-height: 1.4; font-size: 0.9rem; opacity: 0.8; margin-top: 20px; }
@@ -36,7 +36,6 @@
         
         footer { padding: 40px; line-height: 1.2; font-size: 0.9rem; }
         
-        /* Ventana de compra (Modal) */
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
         #modal.active { display: flex; }
         .modal-content { background: #1a1a1a; padding: 40px; border-radius: 10px; max-width: 800px; display: flex; gap: 30px; align-items: center; position: relative; color: white; border: 1px solid #333; }
@@ -60,22 +59,22 @@
 
     <section class="hero">
         <div class="logo-container">
-            <img src="./logo.png" alt="Neutral Estudio" class="logo-neutral">
+            <img src="logo.png" alt="Neutral Estudio" class="logo-neutral">
         </div>
         <p class="hero-desc">Contemporary clothing brand exploring the power of minimal design. Built around neutral palettes, refined graphics, and modern silhouettes, the brand focuses on creating timeless pieces that move beyond trends. Neutral Estudio© represents simplicity, balance, and a new vision of modern streetwear.</p>
     </section>
 
     <div class="grid">
-        <div class="product-card" onclick="openModal('Heart Tee', './heart.jpg', 'Experience raw emotion with our iconic Heart Tee.', '$40.00')">
-            <img src="./heart.jpg" alt="Heart">
+        <div class="product-card" onclick="openModal('Heart Tee', 'heart.jpg', 'Experience raw emotion with our iconic Heart Tee.', '$40.00')">
+            <img src="heart.jpg" alt="Heart">
             <p>$40.00</p>
         </div>
-        <div class="product-card" onclick="openModal('Cherry Tee', './cherry.jpg', 'Indulge in the sweet side of style.', '$40.00')">
-            <img src="./cherry.jpg" alt="Cherry">
+        <div class="product-card" onclick="openModal('Cherry Tee', 'cherry.jpg', 'Indulge in the sweet side of style.', '$40.00')">
+            <img src="cherry.jpg" alt="Cherry">
             <p>$40.00</p>
         </div>
-        <div class="product-card" onclick="openModal('Balloon Dog Tee', './perro.jpg', 'Unleash your inner artist with this piece.', '$40.00')">
-            <img src="./perro.jpg" alt="Dog">
+        <div class="product-card" onclick="openModal('Balloon Dog Tee', 'perro.jpg', 'Unleash your inner artist with this piece.', '$40.00')">
+            <img src="perro.jpg" alt="Perro">
             <p>$40.00</p>
         </div>
     </div>
@@ -101,13 +100,10 @@
     </div>
 
     <script>
-        // Cambio de color al hacer scroll
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) document.body.classList.add('scrolled');
             else document.body.classList.remove('scrolled');
         });
-
-        // Funciones del Modal
         function openModal(title, imgSrc, desc, price) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-img').src = imgSrc;
@@ -119,3 +115,4 @@
     </script>
 </body>
 </html>
+
